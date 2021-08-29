@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     // The Player
     public Rigidbody player;
 
+    public PlayerStats myStats;
+
     // The speed of the player
     public float speed = 5;
 
@@ -36,7 +38,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        myStats = GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame

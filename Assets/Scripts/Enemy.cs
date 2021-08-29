@@ -9,11 +9,18 @@ public class Enemy : MonoBehaviour
 
     public Rigidbody self;
 
+    public PlayerStats enemyStats;
+
     public float speed = 3;
 
     public float radius = 5;
 
-    public int health = 2;
+    //public int health = 2;
+
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -38,10 +45,10 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag.Equals("PlayerWeapon"))
         {
-            health--;
-            Debug.Log("Health: " + health);
+            enemyStats.TakeDamage(player.GetComponent<Player>().myStats.damage);
+            Debug.Log("Enemy Health: " + enemyStats.health);
         }
-        if (health < 1)
+        if (enemyStats.isDead)
         {
             Destroy(gameObject);
         }
